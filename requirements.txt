@@ -1,0 +1,18 @@
+# RotorAgent Python 依赖
+# 安装：pip install -r requirements.txt
+
+# ===== 核心依赖（SW API 调用） =====
+pywin32>=306            # Windows COM 接口（Dispatch）
+comtypes>=1.4.8         # COM vtable 调用（FeatureCut3/FeatureRevolveCut2 等多参数方法）
+pythoncom               # pywin32 依赖
+
+# ===== UI 自动化 =====
+pyautogui>=0.9.54       # 鼠标键盘模拟（无 COM 接口的软件）
+pyperclip>=1.8.2        # 剪贴板文本操作
+
+# ===== 工程数据处理 =====
+openpyxl>=3.1.2         # Excel 读写（参数表、BOM）
+xlwings>=0.31.0         # Excel COM 自动化（可选）
+
+# ===== 图像处理 =====
+Pillow>=10.0.0          # 图片处理

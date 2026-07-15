@@ -216,3 +216,25 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ===== RotorMachAgent 项目特定 =====
+# AI 沙盒（开发暂存区，不进入公开仓库）
+.trae/
+
+# SOLIDWORKS 生成文件
+*.SLDPRT
+*.SLDASM
+*.SLDDRW
+*.sldprt
+*.sldasm
+*.slddrw
+
+# 测试输出
+tests/output/
+
+# 本地配置
+local_config.py
+secrets.json
+
+# 归档文件
+**/archive/
