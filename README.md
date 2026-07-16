@@ -1,4 +1,4 @@
-# RotorAgent
+# RotorMachAgent
 
 > 旋转机械智能设计 Agent —— 让 LLM 通过工具调用驱动 SOLIDWORKS/AutoCAD/Ansys 等工程软件，完成从设计输入到建模到输出的全链路协同
 
@@ -9,7 +9,7 @@
 
 ## 项目定位
 
-**RotorAgent** 是一个面向旋转机械（化工搅拌器、泵、涡轮等）的智能设计 Agent 工具层。它将工程软件的 API 包装为可被 LLM Agent 调用的工具，实现：
+**RotorMachAgent** 是一个面向旋转机械（化工搅拌器、泵、涡轮等）的智能设计 Agent 工具层。它将工程软件的 API 包装为可被 LLM Agent 调用的工具，实现：
 
 ```
 设计输入（自然语言/参数表/标准件规格）
@@ -19,7 +19,7 @@
 设计输出（.sldprt + 工程图 + BOM + 可选 CFD 网格）
 ```
 
-**不依赖中间格式建模**。现有方案多走程序化建模路线，输出 STEP 等中性文件格式，丢失参数化特征树。RotorAgent 输出 SW 原生文件，工程师可在 SW 中继续编辑和二次开发。
+**不依赖中间格式建模**。现有方案多走程序化建模路线，输出 STEP 等中性文件格式，丢失参数化特征树。RotorMachAgent 输出 SW 原生文件，工程师可在 SW 中继续编辑和二次开发。
 
 ## 核心差异化
 
@@ -33,16 +33,19 @@
 ## 当前状态（WIP）
 
 - ✅ 已验证：Python + pywin32 + comtypes 调用 SW API 完成阶梯轴建模（旋转+拉伸切除+旋转切除）
-- ✅ 已完成：SW API 单步指令、指令间协同、设计思路到零件的 3 份技术文档
-- 🚧 进行中：参数化零件生成器、Agent 工具封装
-- ❌ 待做：MCP server、AutoCAD/Ansys 协同、工程图自动生成
+- ✅ 已完成：7 份技术文档（01-07）
+- ✅ 已完成：项目骨架搭建（10 个模块，45 个文件）
+- 🚧 进行中：P1 单步指令开发（SolidWorksAdapter）
+- ❌ 待做：参数化零件生成器、MCP Server、工程图自动生成
+
+**架构决策**：MVP 阶段不开发 GUI，仅提供 **MCP + CLI** 接口，面向 LLM Agent 调用。
 
 详见 [docs/04_开发规划.md](docs/04_开发规划.md)。
 
 ## 目录结构
 
 ```
-RotorAgent/
+RotorMachAgent/
 ├── README.md
 ├── CLA.md                          # 贡献者许可协议
 ├── CONTRIBUTING.md                  # 贡献指南
@@ -54,13 +57,21 @@ RotorAgent/
 │   ├── 03_从设计思路到最终零件.md
 │   ├── 04_开发规划.md
 │   ├── 05_待研究问题.md
-│   └── archive/
+│   ├── 06_基于API的测量与特征识别规划.md
+│   └── 07_系统架构设计.md
 ├── tests/                          # 验证脚本
 │   └── test_shaft_modeling.py
-├── src/                            # 源码（待建）
-│   ├── tools/                      # Agent 工具封装
-│   ├── agents/                     # Agent 工作流
-│   └── adapters/                   # 各软件适配器
+├── src/                            # 源码
+│   ├── adapters/                   # 工程软件适配器（SW/ACAD/ANSYS）
+│   ├── parts/                      # 参数化零件模板（轴/座/桨叶/罐体）
+│   ├── assemblies/                 # 装配体构建与工程图
+│   ├── products/                   # 产品系列批量生成
+│   ├── calculations/               # 工程计算（功率/轴径/轴承/罐体）
+│   ├── standards/                  # GB 标准件库（键/挡圈/螺纹/轴承）
+│   ├── database/                   # 数据库管理（SQLite/PostgreSQL）
+│   ├── tools/                      # Agent 工具封装（MCP 协议）
+│   ├── agents/                     # Agent 工作流与 MCP Server
+│   └── utils/                      # 通用工具（单位转换/参数校验/日志）
 └── examples/                       # 示例（待建）
 ```
 
@@ -76,8 +87,8 @@ RotorAgent/
 
 ```bash
 # 1. 创建 conda 环境
-conda create -n rotoragent python=3.11
-conda activate rotoragent
+conda create -n rotormachagent python=3.11
+conda activate rotormachagent
 
 # 2. 安装依赖
 pip install -r requirements.txt
@@ -92,9 +103,13 @@ python tests/test_shaft_modeling.py
 |------|------|-------|
 | `pywin32` | Windows COM 接口（Dispatch） | 必需 |
 | `comtypes` | COM vtable 调用（FeatureCut3 等多参数方法） | 必需 |
-| `pyautogui` | UI 自动化（无 COM 接口的软件） | 阶段 1 |
-| `openpyxl` | Excel 读写（参数表、BOM） | 阶段 2 |
-| `Pillow` | 图像处理 | 阶段 3 |
+| `pandas` | 数据处理（BOM/规格表） | 必需 |
+| `scipy` | 科学计算（数值积分、优化） | 必需 |
+| `sympy` | 符号计算（公式推导） | 必需 |
+| `openpyxl` | Excel 读写（参数表、BOM） | 必需 |
+| `python-mcp` | MCP 协议（Agent 工具调用） | 必需 |
+| `pyautogui` | UI 自动化（无 COM 接口的软件） | 可选 |
+| `Pillow` | 图像处理 | 可选 |
 
 ### 常见问题
 
