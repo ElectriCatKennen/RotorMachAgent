@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "title": "SolidWorks 模板配置",
+  "description": "SolidWorks 零件、装配体、工程图模板路径配置",
+  "defaults": {
+    "part_template": "",
+    "assembly_template": "",
+    "drawing_template": "",
+    "units": "mm",
+    "material": "45",
+    "color": "{192, 192, 192}",
+    "precision": 0.01,
+    "annotation_scale": 1.0
+  },
+  "search_paths": [
+    "C:\\ProgramData\\SolidWorks\\SOLIDWORKS 2024\\templates",
+    "C:\\ProgramData\\SolidWorks\\SOLIDWORKS 2023\\templates",
+    "C:\\ProgramData\\SolidWorks\\SOLIDWORKS 2022\\templates",
+    "C:\\Users\\Public\\Documents\\SOLIDWORKS\\SOLIDWORKS 2024\\templates",
+    "C:\\Users\\Public\\Documents\\SOLIDWORKS\\SOLIDWORKS 2023\\templates",
+    "C:\\Users\\Public\\Documents\\SOLIDWORKS\\SOLIDWORKS 2022\\templates"
+  ],
+  "template_patterns": {
+    "part": [
+      "GB_Part*.prtdot",
+      "GB*part*.prtdot",
+      "Standard*.prtdot",
+      "Part*.prtdot"
+    ],
+    "assembly": [
+      "GB_Assembly*.asmdot",
+      "GB*assembly*.asmdot",
+      "Standard*.asmdot",
+      "Assembly*.asmdot"
+    ],
+    "drawing": [
+      "GB_Drawing*.drwdot",
+      "GB*drawing*.drwdot",
+      "A0*.drwdot",
+      "A1*.drwdot",
+      "A2*.drwdot",
+      "A3*.drwdot",
+      "A4*.drwdot",
+      "Standard*.drwdot",
+      "Drawing*.drwdot"
+    ]
+  },
+  "custom_templates": {},
+  "material_library": {
+    "path": "",
+    "search_paths": [
+      "C:\\ProgramData\\SolidWorks\\SOLIDWORKS 2024\\materials",
+      "C:\\ProgramData\\SolidWorks\\SOLIDWORKS 2023\\materials",
+      "C:\\Users\\Public\\Documents\\SOLIDWORKS\\SOLIDWORKS 2024\\materials"
+    ]
+  }
+}

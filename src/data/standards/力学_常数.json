@@ -1,0 +1,215 @@
+{
+  "title": "力学常数与常用公式参数",
+  "description": "运动学、动力学常用常数和公式参数",
+  "fundamental_constants": {
+    "gravity_acceleration": {
+      "name": "标准重力加速度",
+      "symbol": "g_n",
+      "value": 9.80665,
+      "unit": "m/s²",
+      "description": "标准自由落体加速度"
+    },
+    "pi": {
+      "name": "圆周率",
+      "symbol": "π",
+      "value": 3.141592653589793,
+      "unit": "",
+      "description": "圆周长与直径之比"
+    },
+    "pi_over_180": {
+      "name": "π/180",
+      "symbol": "π/180",
+      "value": 0.0174532925199433,
+      "unit": "rad/°",
+      "description": "度转弧度系数"
+    },
+    "180_over_pi": {
+      "name": "180/π",
+      "symbol": "180/π",
+      "value": 57.29577951308232,
+      "unit": "°/rad",
+      "description": "弧度转度系数"
+    },
+    "pi_over_30": {
+      "name": "π/30",
+      "symbol": "π/30",
+      "value": 0.1047197551196598,
+      "unit": "rad/(r/min)",
+      "description": "转速(r/min)转角速度(rad/s)系数"
+    },
+    "60_over_2pi": {
+      "name": "60/(2π)",
+      "symbol": "60/(2π)",
+      "value": 9.54929658551372,
+      "unit": "(r/min)·s/rad",
+      "description": "角速度(rad/s)转转速(r/min)系数"
+    },
+    "9550": {
+      "name": "功率-扭矩换算系数",
+      "symbol": "9550",
+      "value": 9549.29658551372,
+      "unit": "(N·m)·(r/min)/kW",
+      "description": "P(kW) = T(N·m) × n(r/min) / 9550"
+    }
+  },
+  "kinematics": {
+    "linear_motion": {
+      "velocity": {"formula": "v = ds/dt", "description": "速度"},
+      "acceleration": {"formula": "a = dv/dt = d²s/dt²", "description": "加速度"},
+      "uniform_motion": {"formula": "s = s₀ + vt", "description": "匀速运动"},
+      "uniform_accelerated_motion": {
+        "v": "v = v₀ + at",
+        "s": "s = s₀ + v₀t + ½at²",
+        "v_squared": "v² = v₀² + 2a(s - s₀)",
+        "description": "匀变速运动"
+      }
+    },
+    "circular_motion": {
+      "angular_velocity": {"formula": "ω = dφ/dt", "description": "角速度"},
+      "angular_acceleration": {"formula": "ε = dω/dt = d²φ/dt²", "description": "角加速度"},
+      "uniform_circular": {
+        "φ": "φ = φ₀ + ωt",
+        "v": "v = rω",
+        "s": "s = rφ",
+        "description": "匀速圆周运动"
+      },
+      "uniform_accelerated_circular": {
+        "ω": "ω = ω₀ + εt",
+        "φ": "φ = φ₀ + ω₀t + ½εt²",
+        "ω_squared": "ω² = ω₀² + 2ε(φ - φ₀)",
+        "description": "匀变速圆周运动"
+      },
+      "tangential_acceleration": {"formula": "a_t = dv/dt = rε", "description": "切向加速度"},
+      "normal_acceleration": {"formula": "a_n = v²/r = rω²", "description": "法向加速度"},
+      "total_acceleration": {"formula": "a = √(a_t² + a_n²)", "description": "总加速度"}
+    },
+    "simple_harmonic_motion": {
+      "displacement": {"formula": "x = A cos(ωt + φ₀)", "description": "位移"},
+      "velocity": {"formula": "v = -Aω sin(ωt + φ₀)", "description": "速度"},
+      "acceleration": {"formula": "a_x = -Aω² cos(ωt + φ₀) = -ω²x", "description": "加速度"},
+      "period": {"formula": "T = 2π/ω = 60/n", "description": "周期"},
+      "frequency": {"formula": "f = 1/T = ω/(2π) = n/60", "description": "频率"}
+    }
+  },
+  "dynamics": {
+    "force_and_torque": {
+      "linear": {"formula": "F = ma", "unit": "N", "description": "力与加速度关系"},
+      "rotational": {"formula": "T = Jε", "unit": "N·m", "description": "转矩与角加速度关系"}
+    },
+    "inertia": {
+      "linear": {"formula": "F_g = -ma", "unit": "N", "description": "惯性力"},
+      "centrifugal": {"formula": "F_gn = mω²r", "unit": "N", "description": "离心惯性力"},
+      "tangential": {"formula": "F_gt = -mrε", "unit": "N", "description": "切向惯性力"},
+      "rotational": {"formula": "M_g = -Jε", "unit": "N·m", "description": "惯性力矩"}
+    },
+    "work_and_energy": {
+      "work_gravity": {"formula": "W = mgh", "unit": "J", "description": "重力做功"},
+      "work_torque": {"formula": "W = T(φ_B - φ_A)", "unit": "J", "description": "转矩做功"},
+      "work_spring": {"formula": "W = ½K(λ_A² - λ_B²)", "unit": "J", "description": "弹力做功"},
+      "power_linear": {"formula": "P = Fv cosβ / 1000", "unit": "kW", "description": "线性功率"},
+      "power_rotational": {"formula": "P = Tn/9550 = Tω/1000", "unit": "kW", "description": "旋转功率"},
+      "kinetic_energy_translation": {"formula": "E_k = ½mv²", "unit": "J", "description": "平动动能"},
+      "kinetic_energy_rotation": {"formula": "E_k = ½Jω²", "unit": "J", "description": "转动动能"},
+      "kinetic_energy_planar": {"formula": "E_k = ½mv_C² + ½J_Cω²", "unit": "J", "description": "平面运动动能"},
+      "potential_energy_gravity": {"formula": "E_p = mgh", "unit": "J", "description": "重力位能"},
+      "potential_energy_spring": {"formula": "E_p = ½Kλ²", "unit": "J", "description": "弹位能"}
+    },
+    "momentum": {
+      "linear": {"formula": "P = mv", "unit": "kg·m/s", "description": "动量"},
+      "angular": {"formula": "L = Jω", "unit": "kg·m²/s", "description": "动量矩"},
+      "impulse_linear": {"formula": "I = Ft", "unit": "N·s", "description": "冲量"},
+      "impulse_rotational": {"formula": "I_t = Tt", "unit": "N·m·s", "description": "冲量矩"},
+      "momentum_theorem": {
+        "linear": "m(v - v₀) = Ft",
+        "rotational": "J(ω - ω₀) = Tt"
+      },
+      "conservation": {
+        "linear": "Σmv = 常数（系统不受外力或外力矢量和为零）",
+        "rotational": "ΣJω = 常数（系统不受外力矩或外力矩矢量和为零）"
+      }
+    },
+    "theorems": {
+      "kinetic_energy": {
+        "linear": "ΣW = ½m(v² - v₀²)",
+        "rotational": "ΣW = ½J(ω² - ω₀²)",
+        "description": "动能定理"
+      },
+      "mechanical_energy_conservation": {
+        "formula": "E_k + E_p = 常数",
+        "condition": "势力场中，只有势力作功",
+        "description": "机械能守恒定律"
+      }
+    }
+  },
+  "collision": {
+    "velocity_after": {
+      "u1": "u₁ = [(m₁ - k₁m₂)v₁ + m₂(1 + k₁)v₂] / (m₁ + m₂)",
+      "u2": "u₂ = [m₁(1 + k₁)v₁ + (m₂ - k₁m₁)v₂] / (m₁ + m₂)"
+    },
+    "impulse": {"formula": "I = m₁(v₁ - u₁) = (1 + k₁)m₁m₂(v₁ - v₂)/(m₁ + m₂)"},
+    "kinetic_energy_change": {"formula": "E_k0 - E_k = m₁m₂(1 - k₁²)(v₁ - v₂)²/[2(m₁ + m₂)]"},
+    "restitution_coefficient": {
+      "wood_ebonite": {"value": 0.26, "description": "木料和胶木相撞"},
+      "wood_wood": {"value": 0.50, "description": "木球和木球相撞"},
+      "steel_steel": {"value": 0.56, "description": "钢球和钢球相撞"},
+      "glass_glass": {"value": 0.94, "description": "玻璃球和玻璃球相撞"},
+      "perfect_elastic": {"value": 1.0, "description": "完全弹性碰撞"},
+      "perfect_plastic": {"value": 0, "description": "完全塑性碰撞"}
+    }
+  },
+  "moment_of_inertia": {
+    "parallel_axis_theorem": {"formula": "J_z = J_c' + mk²", "description": "惯量平行轴定律"},
+    "flywheel_conversion": {
+      "formula1": {"expression": "J = GD²/(4g)", "description": "GD²单位为N·m²"},
+      "formula2": {"expression": "J = GD²/4", "description": "GD²单位为kgf·m²"}
+    },
+    "transmission_conversion": {
+      "description": "传动系统转动惯量换算到电动机轴",
+      "formula": "J = J₁ + J₂/i₁² + J₃/(i₁i₂)² + mr²/(i₁i₂)²",
+      "notation": {
+        "J₁,J₂,J₃": "各轴上回转体的转动惯量(kg·m²)",
+        "m": "移动物体质量(kg)",
+        "r": "卷筒半径(m)",
+        "i₁,i₂": "传动比",
+        "ω₁,ω₂,ω₃": "各轴角速度(rad/s)"
+      }
+    },
+    "general_conversion": {
+      "linear_motion": {"formula": "J_m = mv²/ω₀²", "unit": "kg·m²", "description": "一般移动"},
+      "ball_screw": {"formula": "J = mt²/(4π²i²)", "description": "丝杆传动，t为螺距"},
+      "gear_rack": {"formula": "J = m(d/i)²/4", "description": "齿轮齿条传动，d为节圆直径"}
+    },
+    "equivalent_mass": {
+      "formula": "m_n = Jω²/v²",
+      "description": "转动物体换算为移动速度为v时的当量质量"
+    }
+  },
+  "notation": {
+    "v": "速度(m/s)",
+    "a": "加速度(m/s²)",
+    "s": "位移(m)",
+    "t": "时间(s)",
+    "ω": "角速度(rad/s)",
+    "ε": "角加速度(rad/s²)",
+    "φ": "角位移(rad)",
+    "n": "转速(r/min)",
+    "F": "力(N)",
+    "T": "转矩(N·m)",
+    "m": "质量(kg)",
+    "J": "转动惯量(kg·m²)",
+    "g": "重力加速度(m/s²)",
+    "P": "功率(kW)",
+    "E_k": "动能(J)",
+    "E_p": "位能(J)",
+    "W": "功(J)",
+    "K": "弹簧刚度(N/m)",
+    "λ": "变形量(m)",
+    "k₁": "恢复系数",
+    "i": "传动比",
+    "r": "半径(m)",
+    "d": "直径(m)",
+    "t": "螺距(m)",
+    "v_C": "质心速度(m/s)",
+    "J_C": "对质心转动惯量(kg·m²)"
+  }
+}

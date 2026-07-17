@@ -1,0 +1,50 @@
+{
+  "standard": "GB/T 2822",
+  "title": "标准尺寸",
+  "description": "机械制造用标准尺寸（直径、长度等）系列",
+  "series": {
+    "first": {
+      "name": "第一系列（优先选用）",
+      "description": "基于R10、R20、R40优先数系，优先选用",
+      "values": [6, 8, 10, 12, 16, 20, 25, 32, 40, 50, 63, 80, 100, 125, 160, 200, 250, 320, 400, 500]
+    },
+    "second": {
+      "name": "第二系列（补充选用）",
+      "description": "基于R20/3、R40/3优先数系，无法满足时选用",
+      "values": [7, 9, 11, 14, 18, 22, 28, 36, 45, 56, 71, 90, 110, 140, 180, 220, 280, 360, 450]
+    },
+    "third": {
+      "name": "第三系列（特殊选用）",
+      "description": "特殊场合选用，一般不推荐",
+      "values": [13, 17, 19, 23, 26, 30, 34, 38, 42, 48, 53, 60, 67, 75, 85, 95, 105, 130, 150, 170]
+    }
+  },
+  "rounding_rules": {
+    "default_series": "first",
+    "preference_order": ["first", "second", "third"],
+    "rounding_direction": "up",
+    "allow_down_rounding": false
+  },
+  "machining_allowance": {
+    "rough": {
+      "name": "粗加工",
+      "allowance": [2, 4],
+      "surface_roughness": "Ra12.5"
+    },
+    "semi_finish": {
+      "name": "半精加工",
+      "allowance": [1, 2],
+      "surface_roughness": "Ra6.3"
+    },
+    "finish": {
+      "name": "精加工",
+      "allowance": [0.3, 0.5],
+      "surface_roughness": "Ra3.2"
+    },
+    "super_finish": {
+      "name": "超精加工",
+      "allowance": [0.05, 0.1],
+      "surface_roughness": "Ra0.8"
+    }
+  }
+}

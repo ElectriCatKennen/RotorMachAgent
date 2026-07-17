@@ -1,0 +1,104 @@
+{
+  "standard": "GB 3100—1993",
+  "title": "常用单位换算",
+  "description": "各种物理量的单位换算关系",
+  "standards_referenced": ["GB 3100—1993", "GB 3102.1～3102.7—1993"],
+  "SI_prefixes": {
+    "Y": {"name": "尧[它]", "factor": 1e24, "symbol": "Y"},
+    "Z": {"name": "泽[它]", "factor": 1e21, "symbol": "Z"},
+    "E": {"name": "艾[可萨]", "factor": 1e18, "symbol": "E"},
+    "P": {"name": "拍[它]", "factor": 1e15, "symbol": "P"},
+    "T": {"name": "太[拉]", "factor": 1e12, "symbol": "T"},
+    "G": {"name": "吉[咖]", "factor": 1e9, "symbol": "G"},
+    "M": {"name": "兆", "factor": 1e6, "symbol": "M"},
+    "k": {"name": "千", "factor": 1e3, "symbol": "k"},
+    "h": {"name": "百", "factor": 1e2, "symbol": "h"},
+    "da": {"name": "十", "factor": 1e1, "symbol": "da"},
+    "d": {"name": "分", "factor": 1e-1, "symbol": "d"},
+    "c": {"name": "厘", "factor": 1e-2, "symbol": "c"},
+    "m": {"name": "毫", "factor": 1e-3, "symbol": "m"},
+    "μ": {"name": "微", "factor": 1e-6, "symbol": "μ"},
+    "n": {"name": "纳[诺]", "factor": 1e-9, "symbol": "n"},
+    "p": {"name": "皮[可]", "factor": 1e-12, "symbol": "p"},
+    "f": {"name": "飞[母托]", "factor": 1e-15, "symbol": "f"},
+    "a": {"name": "阿[托]", "factor": 1e-18, "symbol": "a"},
+    "z": {"name": "仄[普托]", "factor": 1e-21, "symbol": "z"},
+    "y": {"name": "幺[科托]", "factor": 1e-24, "symbol": "y"}
+  },
+  "length": {
+    "meter": {"symbol": "m", "name": "米", "conversions": {"inch": 39.3701, "foot": 3.28084, "yard": 1.09361, "mile": 6.21371e-4, "nautical_mile": 5.39957e-4}},
+    "inch": {"symbol": "in", "name": "英寸", "conversions": {"meter": 0.0254, "foot": 0.083333, "yard": 0.027778, "mile": 1.57828e-5}},
+    "foot": {"symbol": "ft", "name": "英尺", "conversions": {"meter": 0.3048, "inch": 12, "yard": 0.333333, "mile": 1.89394e-4}},
+    "yard": {"symbol": "yd", "name": "码", "conversions": {"meter": 0.9144, "inch": 36, "foot": 3, "mile": 5.68182e-4}},
+    "mile": {"symbol": "mile", "name": "英里", "conversions": {"meter": 1609.34, "inch": 63360, "foot": 5280, "yard": 1760}},
+    "nautical_mile": {"symbol": "n mile", "name": "海里", "conversions": {"meter": 1852}}
+  },
+  "area": {
+    "square_meter": {"symbol": "m²", "name": "平方米", "conversions": {"square_inch": 1550.00, "square_foot": 10.7639, "acre": 2.47105e-4, "hectare": 1e-4}},
+    "square_inch": {"symbol": "in²", "name": "平方英寸", "conversions": {"square_meter": 6.4516e-4, "square_foot": 6.94444e-3}},
+    "square_foot": {"symbol": "ft²", "name": "平方英尺", "conversions": {"square_meter": 9.29030e-2, "square_inch": 144}},
+    "acre": {"symbol": "acre", "name": "英亩", "conversions": {"square_meter": 4046.86, "hectare": 0.404686}},
+    "hectare": {"symbol": "ha", "name": "公顷", "conversions": {"square_meter": 10000}}
+  },
+  "volume": {
+    "cubic_meter": {"symbol": "m³", "name": "立方米", "conversions": {"liter": 1000, "cubic_inch": 61023.7, "cubic_foot": 35.3147, "cubic_yard": 1.30795, "UK_gallon": 219.969, "US_gallon": 264.172}},
+    "liter": {"symbol": "L", "name": "升", "conversions": {"cubic_meter": 0.001, "cubic_inch": 61.0237}},
+    "cubic_inch": {"symbol": "in³", "name": "立方英寸", "conversions": {"cubic_meter": 1.63871e-5}},
+    "cubic_foot": {"symbol": "ft³", "name": "立方英尺", "conversions": {"cubic_meter": 0.0283168}},
+    "UK_gallon": {"symbol": "UK gal", "name": "英加仑", "conversions": {"cubic_meter": 4.54609e-3, "US_gallon": 1.20095}},
+    "US_gallon": {"symbol": "US gal", "name": "美加仑", "conversions": {"cubic_meter": 3.78541e-3}}
+  },
+  "force": {
+    "newton": {"symbol": "N", "name": "牛[顿]", "conversions": {"kilogram_force": 0.101972, "dyne": 1e5, "ton_force": 1e-4, "pound_force": 0.224809}},
+    "kilogram_force": {"symbol": "kgf", "name": "千克力", "conversions": {"newton": 9.80665}},
+    "dyne": {"symbol": "dyn", "name": "达因", "conversions": {"newton": 1e-5}},
+    "ton_force": {"symbol": "tf", "name": "吨力", "conversions": {"newton": 9806.65}},
+    "pound_force": {"symbol": "lbf", "name": "磅力", "conversions": {"newton": 4.44822}}
+  },
+  "pressure": {
+    "pascal": {"symbol": "Pa", "name": "帕[斯卡]", "conversions": {"bar": 1e-5, "atmosphere": 9.86923e-6, "kilogram_force_per_cm2": 1.01972e-5, "pound_force_per_inch2": 1.45038e-4, "mmHg": 7.50062e-3}},
+    "bar": {"symbol": "bar", "name": "巴", "conversions": {"pascal": 1e5}},
+    "atmosphere": {"symbol": "atm", "name": "标准大气压", "conversions": {"pascal": 101325}},
+    "kilogram_force_per_cm2": {"symbol": "kgf/cm²", "name": "千克力/厘米²", "conversions": {"pascal": 98066.5}},
+    "pound_force_per_inch2": {"symbol": "psi", "name": "磅力/英寸²", "conversions": {"pascal": 6894.76}},
+    "mmHg": {"symbol": "mmHg", "name": "毫米汞柱", "conversions": {"pascal": 133.322}}
+  },
+  "power": {
+    "watt": {"symbol": "W", "name": "瓦[特]", "conversions": {"kilowatt": 0.001, "horsepower": 1.34102e-3, "kilogram_force_m_per_s": 0.101972, "foot_pound_force_per_s": 0.737562, "kcal_per_h": 0.859845}},
+    "kilowatt": {"symbol": "kW", "name": "千瓦", "conversions": {"watt": 1000}},
+    "horsepower": {"symbol": "HP", "name": "马力", "conversions": {"watt": 745.700}},
+    "kilogram_force_m_per_s": {"symbol": "kgf·m/s", "name": "千克力·米/秒", "conversions": {"watt": 9.80665}},
+    "kcal_per_h": {"symbol": "kcal/h", "name": "千卡/小时", "conversions": {"watt": 1.163}}
+  },
+  "energy": {
+    "joule": {"symbol": "J", "name": "焦[耳]", "conversions": {"kilowatt_hour": 2.77778e-7, "calorie": 0.238846, "kilocalorie": 2.38846e-4, "foot_pound_force": 0.737562}},
+    "kilowatt_hour": {"symbol": "kWh", "name": "千瓦·时", "conversions": {"joule": 3.6e6}},
+    "calorie": {"symbol": "cal", "name": "卡", "conversions": {"joule": 4.1868}},
+    "kilocalorie": {"symbol": "kcal", "name": "千卡", "conversions": {"joule": 4186.8}}
+  },
+  "angle": {
+    "radian": {"symbol": "rad", "name": "弧度", "conversions": {"degree": 57.2958, "minute": 3437.75, "second": 206265}},
+    "degree": {"symbol": "°", "name": "度", "conversions": {"radian": 0.0174533, "minute": 60, "second": 3600}},
+    "minute": {"symbol": "′", "name": "角分", "conversions": {"radian": 2.90888e-4}},
+    "second": {"symbol": "″", "name": "角秒", "conversions": {"radian": 4.84814e-6}}
+  },
+  "temperature": {
+    "kelvin": {"symbol": "K", "name": "开[尔文]", "conversions": {"celsius_offset": -273.15}},
+    "celsius": {"symbol": "°C", "name": "摄氏度", "conversions": {"kelvin_offset": 273.15, "fahrenheit_offset": 32, "fahrenheit_factor": 1.8}}
+  },
+  "mass": {
+    "kilogram": {"symbol": "kg", "name": "千克", "conversions": {"pound": 2.20462, "ton": 0.001}},
+    "pound": {"symbol": "lb", "name": "磅", "conversions": {"kilogram": 0.453592}},
+    "ton": {"symbol": "t", "name": "吨", "conversions": {"kilogram": 1000}}
+  },
+  "speed": {
+    "meter_per_second": {"symbol": "m/s", "name": "米/秒", "conversions": {"kilometer_per_hour": 3.6, "mile_per_hour": 2.23694, "knot": 1.94384}},
+    "kilometer_per_hour": {"symbol": "km/h", "name": "千米/小时", "conversions": {"meter_per_second": 0.277778}},
+    "mile_per_hour": {"symbol": "mph", "name": "英里/小时", "conversions": {"meter_per_second": 0.44704}},
+    "knot": {"symbol": "kn", "name": "节", "conversions": {"meter_per_second": 0.514444}}
+  },
+  "special_notes": {
+    "barrel": {"description": "用于石油", "value": "9702 in³ = 158.9873 dm³ = 42 US gal = 34.97 UK gal"},
+    "chinese_numbers": {"description": "10^4称为万，10^8称为亿，10^12称为万亿，这类数词的使用不受词头名称的影响"}
+  }
+}
