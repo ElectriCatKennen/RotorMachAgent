@@ -43,47 +43,35 @@
 
 **架构决策**：MVP 阶段不开发 GUI，仅提供 **MCP + CLI** 接口，面向 LLM Agent 调用。
 
-详见 [docs/开发规划.md](docs/开发规划.md)。
+详见 [使用指南](docs/使用指南.md)。
 
 ## 目录结构
 
 ```
 RotorMachAgent/
-├── README.md
+├── README.md                       # 项目介绍（本文件）
 ├── CLA.md                          # 贡献者许可协议
-├── CONTRIBUTING.md                  # 贡献指南
+├── CONTRIBUTING.md                 # 贡献指南
 ├── LICENSE                         # AGPL-3.0
 ├── requirements.txt                # Python 依赖
-├── docs/                           # 技术文档
-│   ├── architecture/               # 系统架构设计
-│   ├── requirements/               # 需求分析文档
-│   ├── shaft_design/               # 轴系设计文档
-│   └── 开发规划.md                 # 开发路线图
-├── tests/                          # 验证脚本
+├── docs/                           # 公开文档（PPT式亮点呈现）
+│   ├── 使用指南.md                 # 外部接口使用教程
+│   ├── 应用场景.md                 # 使用场景与案例
+│   ├── 技术栈.md                   # 技术栈概览
+│   └── 参考标准.md                 # 引用的GB标准列表
+├── tests/                          # 验证脚本（可作为使用示例）
 │   ├── adapters/                   # 适配器测试
-│   ├── parts/                      # 零件生成器测试
+│   ├── calculations/               # 计算模块测试
 │   └── standards/                  # 标准数据测试
-├── src/                            # 源码
+├── src/                            # 源码（核心实现，开源）
 │   ├── adapters/                   # 工程软件适配器（SW/ACAD/ANSYS）
 │   ├── parts/                      # 参数化零件模板（轴/座/桨叶/罐体）
 │   ├── assemblies/                 # 装配体构建与工程图
-│   ├── products/                   # 产品系列批量生成
 │   ├── calculations/               # 工程计算（功率/轴径/轴承/罐体）
 │   ├── standards/                  # GB 标准件库（键/挡圈/螺纹/轴承）
-│   │   ├── data_loader.py          # 数据加载器
-│   │   └── gb_tables.py            # GB 标准尺寸数据库
-│   ├── database/                   # 数据库管理（SQLite/PostgreSQL）
 │   ├── tools/                      # Agent 工具封装（MCP 协议）
 │   ├── agents/                     # Agent 工作流与 MCP Server
-│   ├── utils/                      # 通用工具（单位转换/参数校验/日志）
-│   └── data/                       # 包内数据（随包分发）
-│       ├── standards/              # GB 标准数据（JSON）
-│       │   ├── GB_T1096_平键.json
-│       │   ├── GB_T321_优先数系.json
-│       │   ├── GB_3100_单位换算.json
-│       │   └── 力学_常数.json
-│       ├── materials/              # 材料属性
-│       └── templates/              # SW 模板配置
+│   └── data/                       # 包内数据（GB标准JSON，随包分发）
 └── examples/                       # 示例（待建）
 ```
 
@@ -139,12 +127,14 @@ A: 数据文件位于 `src/data/`，随包分发。确保 Python 路径包含项
 
 ## 调研背景
 
-立项前已调研现有方案，详见 [系统架构设计文档](docs/architecture/系统架构设计.md) 附录。关键发现：
+立项前已调研现有方案。关键发现：
 
 - 开源生态缺一个"SW 原生 API + LLM Agent"的成熟工具
 - 部分现有开源 SW 封装库处于早期阶段，API 覆盖不完整
 - 部分闭源 SaaS 方案方向重合但不提供开源代码
 - 学术研究方案多采用程序化建模路线
+
+> 本项目"代码开源，思路不开源"。公开文档仅呈现亮点和使用方法，内部设计思路、架构决策、算法推导详见源码。
 
 ---
 
