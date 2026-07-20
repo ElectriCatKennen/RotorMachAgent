@@ -33,8 +33,6 @@
 ## 当前状态（WIP）
 
 - ✅ 已验证：Python + pywin32 + comtypes 调用 SW API 完成阶梯轴建模
-- ✅ 已完成：7 份技术文档（01-07）
-- ✅ 已完成：项目骨架搭建（10 个模块，45+ 文件）
 - ✅ 已完成：数据与代码分离（GB 标准数据提取为 JSON）
 - ✅ 已完成：数据加载器（统一读取接口，包内数据）
 - ✅ 已完成：平键模型（GB/T 1096，A/B/C 型）
@@ -45,7 +43,7 @@
 
 **架构决策**：MVP 阶段不开发 GUI，仅提供 **MCP + CLI** 接口，面向 LLM Agent 调用。
 
-详见 [docs/04_开发规划.md](docs/04_开发规划.md)。
+详见 [docs/开发规划.md](docs/开发规划.md)。
 
 ## 目录结构
 
@@ -57,13 +55,10 @@ RotorMachAgent/
 ├── LICENSE                         # AGPL-3.0
 ├── requirements.txt                # Python 依赖
 ├── docs/                           # 技术文档
-│   ├── 01_SW_API单步指令参考.md
-│   ├── 02_SW_API指令间协同.md
-│   ├── 03_从设计思路到最终零件.md
-│   ├── 04_开发规划.md
-│   ├── 05_待研究问题.md
-│   ├── 06_基于API的测量与特征识别规划.md
-│   └── 07_系统架构设计.md
+│   ├── architecture/               # 系统架构设计
+│   ├── requirements/               # 需求分析文档
+│   ├── shaft_design/               # 轴系设计文档
+│   └── 开发规划.md                 # 开发路线图
 ├── tests/                          # 验证脚本
 │   ├── adapters/                   # 适配器测试
 │   ├── parts/                      # 零件生成器测试
@@ -144,7 +139,7 @@ A: 数据文件位于 `src/data/`，随包分发。确保 Python 路径包含项
 
 ## 调研背景
 
-立项前已调研现有方案，详见 [docs/05_待研究问题.md](docs/05_待研究问题.md)。关键发现：
+立项前已调研现有方案，详见 [系统架构设计文档](docs/architecture/系统架构设计.md) 附录。关键发现：
 
 - 开源生态缺一个"SW 原生 API + LLM Agent"的成熟工具
 - 部分现有开源 SW 封装库处于早期阶段，API 覆盖不完整
@@ -172,7 +167,12 @@ SOLIDWORKS 是 Dassault Systèmes 的注册商标。本项目不分发 SOLIDWORK
 
 欢迎贡献！详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-核心代码（`src/`）贡献需签署 [CLA.md](CLA.md)，文档/测试/示例贡献不受限制。CLA 检查已通过 GitHub Actions 自动配置，仅对 `src/` 目录的变更触发。
+本项目采用分层参与策略：
+- **用户反馈**：欢迎通过 Issues 提交使用体验和建议
+- **代码贡献**：仅接受理念相符者的贡献，需签署 [CLA.md](CLA.md)
+- **文档/测试/示例**：不受限制，欢迎任何形式的改进
+
+CLA 检查已通过 GitHub Actions 自动配置，仅对 `src/` 目录的变更触发。
 
 ---
 
@@ -185,10 +185,10 @@ SOLIDWORKS 是 Dassault Systèmes 的注册商标。本项目不分发 SOLIDWORK
 
 本项目以**兴趣驱动**为主，目前主要满足个人设计需求，开发方向完全取决于维护者个人偏好。在项目成熟前，**没有商业化打算**。
 
-### 沟通渠道
+### 参与方式
 
-- **技术问题**：通过 GitHub Issues 提交，欢迎讨论和建议
-- **功能请求**：通过 GitHub Issues 提交，由维护者评估优先级
+- **用户反馈**：欢迎通过 Issues 提交使用体验和建议
+- **代码贡献**：需先在 Issues 中讨论设计方案，获得维护者认可后再提交 PR
 - **商业授权咨询**：见仓库 Issues，暂不接受私下商业合作邀请
 
 > 所有商业合作咨询请通过 GitHub Issues 公开讨论，不接受私下 cold email。
